@@ -48,10 +48,21 @@ class Pattern extends Component {
 	    width: '100%',
 	  };
 
+	  let metaStyle = {
+  		background: '#e3e3e3',
+	    borderRadius: '4px',
+	    lineHeight: '16px',
+	    textAlign: 'center',
+	    padding: '10px',
+	    marginBottom: '10px',
+  	};
+
     return (
       <div>
         <div style={singlePatternStyle}>
-          <PatternMetadata pattern={this.state.pattern} />
+        	<div style={metaStyle}>
+          	<PatternMetadata pattern={this.state.pattern} />
+          </div>
           <div style={svgWrapperStyle}>
           	<div style={svgStyle} dangerouslySetInnerHTML={ this.createSvg() } />
           </div>
