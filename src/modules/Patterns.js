@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Grid } from 'react-bootstrap';
+
 import PatternCard from './PatternCard';
 
 class Patterns extends Component {
@@ -31,11 +33,14 @@ class Patterns extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.patterns.map((pattern) =>
-          <PatternCard key={pattern.id} pattern={pattern} />
-        )}
-      </div>
+    	<div>
+	    	<h1>Pattern Gallery</h1>
+	    	<Grid fluid={true}>
+		        {this.state.patterns.map((pattern) =>
+		          <PatternCard key={pattern.id} pattern={pattern} />
+		        )}
+		    </Grid>
+	    </div>
     );
   }
 }

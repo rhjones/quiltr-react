@@ -1,3 +1,7 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css);
+@import url(https://use.fontawesome.com/e2e98f39a3.css);
+@import url(https://fonts.googleapis.com/css?family=Quicksand|Pacifico);
+
 html {
   box-sizing: border-box;
 }
@@ -8,5 +12,5 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Quicksand, sans-serif;
 }

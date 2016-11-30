@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { Col } from 'react-bootstrap';
 
 import PatternMetadata from './PatternMetadata';
 import '../Svg.css';
@@ -43,20 +44,22 @@ class PatternCard extends Component {
 		};
 
 		return (
-			<div style={patternCardStyle}>
-				<Link to={ '/patterns/' + this.props.pattern.id }>
-			    <div>
-			      <div style={svgWrapperStyle}>
-			        <span className="pattern-card-svg" dangerouslySetInnerHTML={ this.createSvg() } />
-			      </div>
-			    </div>
-			  </Link>
-			  <div style={captionStyle}>
-			    <p style={captionPStyle}>
-			    	<PatternMetadata style={captionPStyle} pattern={this.props.pattern} />
-			    </p>
-			  </div>
-			</div>
+			<Col sm={4} md={3}>
+				<div style={patternCardStyle}>
+					<Link to={ '/patterns/' + this.props.pattern.id }>
+				    <div>
+				      <div style={svgWrapperStyle}>
+				        <span className="pattern-card-svg" dangerouslySetInnerHTML={ this.createSvg() } />
+				      </div>
+				    </div>
+				  </Link>
+				  <div style={captionStyle}>
+				    <p style={captionPStyle}>
+				    	<PatternMetadata style={captionPStyle} pattern={this.props.pattern} />
+				    </p>
+				  </div>
+				</div>
+			</Col>
 		)
 	}
 
