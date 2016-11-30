@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PatternMetadata from './PatternMetadata';
 
+import '../Svg.css';
+
 class Pattern extends Component {
 	constructor() {
     super();
@@ -43,11 +45,6 @@ class Pattern extends Component {
   		background: 'white',
   	};
 
-  	let svgStyle = {
-	    height: '100%',
-	    width: '100%',
-	  };
-
 	  let metaStyle = {
   		background: '#e3e3e3',
 	    borderRadius: '4px',
@@ -61,10 +58,12 @@ class Pattern extends Component {
       <div>
         <div style={singlePatternStyle}>
         	<div style={metaStyle}>
-          	<PatternMetadata pattern={this.state.pattern} />
+          	<p>
+              <PatternMetadata pattern={this.state.pattern} />
+            </p>
           </div>
           <div style={svgWrapperStyle}>
-          	<div style={svgStyle} dangerouslySetInnerHTML={ this.createSvg() } />
+          	<span className="single-pattern-svg" dangerouslySetInnerHTML={ this.createSvg() } />
           </div>
         </div>   
       </div>
