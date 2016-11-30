@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PatternCard from './PatternCard';
 
 class Patterns extends Component {
 	constructor() {
@@ -22,7 +23,7 @@ class Patterns extends Component {
     fetch(process.env.REACT_APP_API_HOST + 'patterns')
       .then(this.status)
       .then(this.json)
-      .then((json) => this.setState({patterns: json}))
+      .then((json) => this.setState({patterns: json.patterns}))
       .then(() => console.log(this.state.patterns))
       .catch(console.error)
       ; 
@@ -31,7 +32,9 @@ class Patterns extends Component {
   render() {
     return (
       <div>
-        <p>multiple patterns</p>
+        {this.state.patterns.map((pattern) =>
+          <PatternCard key={pattern.id} pattern={pattern} />
+        )}
       </div>
     );
   }
