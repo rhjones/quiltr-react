@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PatternMetadata from './PatternMetadata';
 
 class Pattern extends Component {
 	constructor() {
@@ -37,15 +38,6 @@ class Pattern extends Component {
   		paddingTop: '20px',
   	};
 
-  	let metaStyle = {
-  		background: '#e3e3e3',
-	    borderRadius: '4px',
-	    lineHeight: '16px',
-	    textAlign: 'center',
-	    padding: '10px',
-	    marginBottom: '10px',
-  	};
-
   	let svgWrapperStyle = {
   		textAlign: 'center',
   		background: 'white',
@@ -59,13 +51,7 @@ class Pattern extends Component {
     return (
       <div>
         <div style={singlePatternStyle}>
-          <div style={metaStyle}>
-          	<p>
-	            {this.state.pattern.quilt_size} |&nbsp; 
-	            {this.state.pattern.colors} color |&nbsp;
-	            {this.state.pattern.block_size}" blocks
-	          </p>
-          </div>
+          <PatternMetadata pattern={this.state.pattern} />
           <div style={svgWrapperStyle}>
           	<div style={svgStyle} dangerouslySetInnerHTML={ this.createSvg() } />
           </div>
