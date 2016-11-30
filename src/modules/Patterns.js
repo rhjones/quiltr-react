@@ -25,7 +25,7 @@ class Patterns extends Component {
       .then((json) => this.setState({patterns: json}))
       .then(() => console.log(this.state.patterns))
       .catch(console.error)
-      ;
+      ; 
   }
 
   render() {
