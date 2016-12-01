@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, Redirect } from 'react-router';
+import { Router, Route, hashHistory, Redirect } from 'react-router';
 
 
 import App from './App';
@@ -9,7 +9,7 @@ import Pattern from './modules/Pattern';
 import './index.css';
 
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
    	<Redirect from="/" to="/patterns" />
     <Route path="/" component={App}>
       <Route path="patterns" component={Patterns} />
