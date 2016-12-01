@@ -6,6 +6,7 @@ import { Router, Route, hashHistory, Redirect } from 'react-router';
 import App from './App';
 import Patterns from './modules/Patterns';
 import Pattern from './modules/Pattern';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 ReactDOM.render((
