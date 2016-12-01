@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import PatternMetadata from './PatternMetadata';
+import { Col, Row } from 'react-bootstrap';
 
+import PatternMetadata from './PatternMetadata';
+import ProjectCard from './ProjectCard';
 import '../Svg.css';
 
 class Pattern extends Component {
@@ -54,9 +56,11 @@ class Pattern extends Component {
 	    marginBottom: '10px',
   	};
 
+    let hasProjects = this.state.pattern.projects;
+
     return (
       <div>
-        <div style={singlePatternStyle}>
+        <Col md={6} style={singlePatternStyle}>
         	<div style={metaStyle}>
           	<p>
               <PatternMetadata pattern={this.state.pattern} />
@@ -64,8 +68,20 @@ class Pattern extends Component {
           </div>
           <div style={svgWrapperStyle}>
           	<span className="single-pattern-svg" dangerouslySetInnerHTML={ this.createSvg() } />
-          </div>
-        </div>   
+          </div>  
+        </Col>
+        <Col md={6}>
+          <h1>Projects based on this pattern</h1>
+          {hasProjects && this.state.pattern.projects.length > 0 ? (
+            <Row>
+              {this.state.pattern.projects.map((project) =>
+                <ProjectCard key={project} projectId={project} />
+              )}
+            </Row>
+          ) : (
+            <div>This pattern does not yet have any associated projects.</div>
+          )}
+        </Col>
       </div>
     );
   }
