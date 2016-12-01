@@ -26,21 +26,18 @@ class ProjectCard extends Component {
       .then(this.status)
       .then(this.json)
       .then((json) => this.setState({project: json.project}))
-      .then(() => console.log(this.state))
       .then(() => {
       	return fetch(apiHost + 'users/' + this.state.project.user);
       })
       .then(this.status)
       .then(this.json)
       .then((json) => this.setState({user : json.user }))
-      .then(() => console.log('new state', this.state))
       .then(() => {
       	if (this.state.project.project_uploads.length > 0) {
       		return fetch(apiHost + 'project_uploads/' + this.state.project.project_uploads[0])
 	      	.then(this.status)
 		      .then(this.json)
 		      .then((json) => this.setState({image: json.project_upload}))
-		      .then(() => console.log('new state', this.state))
 		      ;
       	}
     	})
