@@ -22,7 +22,8 @@ class Patterns extends Component {
 	}
 
   componentDidMount() {
-    fetch(process.env.REACT_APP_API_HOST + 'patterns')
+    let apiHost = process.env.REACT_APP_API_HOST;
+    fetch(apiHost + 'patterns')
       .then(this.status)
       .then(this.json)
       .then((json) => this.setState({patterns: json.patterns}))
