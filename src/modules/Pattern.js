@@ -6,22 +6,22 @@ import ProjectCard from './ProjectCard';
 import '../Svg.css';
 
 class Pattern extends Component {
-	constructor() {
+  constructor() {
     super();
     this.state = { pattern: [] };
   }
 
   status(response) {  
-	  if (response.status >= 200 && response.status < 300) {  
-	    return Promise.resolve(response);
-	  } else {  
-	    return Promise.reject(new Error(response.statusText));
-	  }  
-	}
+    if (response.status >= 200 && response.status < 300) {  
+      return Promise.resolve(response);
+    } else {  
+      return Promise.reject(new Error(response.statusText));
+    }  
+  }
 
-	json(response) {  
-	  return response.json();
-	}
+  json(response) {  
+    return response.json();
+  }
 
   componentDidMount() {
     let apiHost = process.env.REACT_APP_API_HOST;
@@ -34,40 +34,40 @@ class Pattern extends Component {
   }
 
   createSvg() {
-	  return {__html: this.state.pattern.svg};
-	}
+    return {__html: this.state.pattern.svg};
+  }
 
   render() {
-  	let singlePatternStyle = {
-  		paddingTop: '20px',
-  	};
+    let singlePatternStyle = {
+      paddingTop: '20px',
+    };
 
-  	let svgWrapperStyle = {
-  		textAlign: 'center',
-  		background: 'white',
-  	};
+    let svgWrapperStyle = {
+      textAlign: 'center',
+      background: 'white',
+    };
 
-	  let metaStyle = {
-  		background: '#e3e3e3',
-	    borderRadius: '4px',
-	    lineHeight: '16px',
-	    textAlign: 'center',
-	    padding: '10px',
-	    marginBottom: '10px',
-  	};
+    let metaStyle = {
+      background: '#e3e3e3',
+      borderRadius: '4px',
+      lineHeight: '16px',
+      textAlign: 'center',
+      padding: '10px',
+      marginBottom: '10px',
+    };
 
     let hasProjects = this.state.pattern.projects;
 
     return (
       <div>
         <Col md={6} style={singlePatternStyle}>
-        	<div style={metaStyle}>
-          	<p>
+          <div style={metaStyle}>
+            <p>
               <PatternMetadata pattern={this.state.pattern} />
             </p>
           </div>
           <div style={svgWrapperStyle}>
-          	<span className="single-pattern-svg" dangerouslySetInnerHTML={ this.createSvg() } />
+            <span className="single-pattern-svg" dangerouslySetInnerHTML={ this.createSvg() } />
           </div>  
         </Col>
         <Col md={6}>
